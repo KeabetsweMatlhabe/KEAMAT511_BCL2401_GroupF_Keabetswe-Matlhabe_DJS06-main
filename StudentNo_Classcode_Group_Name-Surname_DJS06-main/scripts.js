@@ -14,11 +14,11 @@ const products = [
   { product: 'tea', price: '' },
 ];
 
-// ForEach Basics
-// Log each name
+
+// Logs each name
 names.forEach(name => console.log(name));
 
-// Log each province
+// Logs each province
 provinces.forEach(province => console.log(province));
 
 // Log each name with its matching province
@@ -26,32 +26,28 @@ names.forEach((name, index) => {
   console.log(`${name} (${provinces[index]})`);
 });
 
-// Uppercase Transformation
 // Create a new array of province names in all uppercase
 const uppercaseProvinces = provinces.map(province => province.toUpperCase());
 console.log(uppercaseProvinces);
 
-// Name Lengths
 // CreateS a new array that contains the length of each name
 const nameLengths = names.map(name => name.length);
 console.log(nameLengths);
 
-// Sorting
+
 // Alphabetically sort the provinces
 const sortedProvinces = [...provinces].sort();
 console.log(sortedProvinces);
 
-// Filtering Cape
+
 // Remove provinces containing "Cape" and log the count of remaining provinces
 const filteredProvinces = provinces.filter(province => !province.includes('Cape'));
 console.log(filteredProvinces.length);
 
-// Finding 'S'
-// Create a boolean array to determine if a name contains the letter 'S'
+// Creates a boolean array to determine if a name contains the letter 'S'
 const containsS = names.map(name => name.includes('S'));
 console.log(containsS);
 
-// Creating Object Mapping
 // Transform the names array into an object mapping names to their respective provinces
 const nameToProvinceMap = names.reduce((obj, name, index) => {
   obj[name] = provinces[index];
@@ -59,21 +55,20 @@ const nameToProvinceMap = names.reduce((obj, name, index) => {
 }, {});
 console.log(nameToProvinceMap);
 
-// Advanced Exercises (Single console.log Execution)
 
 // Log each name and province with matching format "Name (Province)"
 console.log(names.map((name, index) => `${name} (${provinces[index]})`));
 
-// Log the new array of province names in all uppercase
+// Logs the new array of province names in all uppercase
 console.log(provinces.map(province => province.toUpperCase()));
 
-// Log the array of name lengths
+// Logs the array of name lengths
 console.log(names.map(name => name.length));
 
-// Log the alphabetically sorted provinces
+// Logs the alphabetically sorted provinces
 console.log([...provinces].sort());
 
-// Log the count of remaining provinces after filtering out those containing "Cape"
+// Logs the count of remaining provinces after filtering out those containing "Cape"
 console.log(provinces.filter(province => !province.includes('Cape')).length);
 
 // Log the boolean array for names containing 'S'
