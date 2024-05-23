@@ -1,10 +1,10 @@
-// A list of provinces:
-const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State']
+// List of provinces
+const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State'];
 
-// A list of names:
-const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie']
+// List of names
+const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie'];
 
-// A list of products with prices:
+// List of products with prices
 const products = [
   { product: 'banana', price: "2" },
   { product: 'mango', price: 6 },
@@ -12,34 +12,75 @@ const products = [
   { product: 'avocado', price: "8" },
   { product: 'coffee', price: 10 },
   { product: 'tea', price: '' },
-]
-const provinceSelect = document.getElementById('provinceSelect');
-const productList = document.getElementById('productList');
+];
 
-function populateProvinces() {
-  provinces.forEach(province => {
-    const option = document.createElement('option');
-    option.value = province;
-    option.textContent = province;
-    provinceSelect.appendChild(option);
-  });
-}
+// ForEach Basics
+// Log each name
+names.forEach(name => console.log(name));
 
-function filterProducts() {
-  const selectedProvince = provinceSelect.value;
-  const filteredProducts = products.filter(product => product.origin.includes(selectedProvince));
-  productList.innerHTML = ''; // Clear previous list
+// Log each province
+provinces.forEach(province => console.log(province));
 
-  if (filteredProducts.length > 0) {
-    filteredProducts.forEach(product => {
-      const listItem = document.createElement('li');
-      listItem.textContent = `${product.product} (Price: $${product.price})`;
-      productList.appendChild(listItem);
-    });
-  } else {
-    productList.innerHTML = '<li>No products available in this province.</li>';
-  }
-}
+// Log each name with its matching province
+names.forEach((name, index) => {
+  console.log(`${name} (${provinces[index]})`);
+});
 
-populateProvinces();
-provinceSelect.addEventListener('change', filterProducts); // Update products on province change
+// Uppercase Transformation
+// Create a new array of province names in all uppercase
+const uppercaseProvinces = provinces.map(province => province.toUpperCase());
+console.log(uppercaseProvinces);
+
+// Name Lengths
+// CreateS a new array that contains the length of each name
+const nameLengths = names.map(name => name.length);
+console.log(nameLengths);
+
+// Sorting
+// Alphabetically sort the provinces
+const sortedProvinces = [...provinces].sort();
+console.log(sortedProvinces);
+
+// Filtering Cape
+// Remove provinces containing "Cape" and log the count of remaining provinces
+const filteredProvinces = provinces.filter(province => !province.includes('Cape'));
+console.log(filteredProvinces.length);
+
+// Finding 'S'
+// Create a boolean array to determine if a name contains the letter 'S'
+const containsS = names.map(name => name.includes('S'));
+console.log(containsS);
+
+// Creating Object Mapping
+// Transform the names array into an object mapping names to their respective provinces
+const nameToProvinceMap = names.reduce((obj, name, index) => {
+  obj[name] = provinces[index];
+  return obj;
+}, {});
+console.log(nameToProvinceMap);
+
+// Advanced Exercises (Single console.log Execution)
+
+// Log each name and province with matching format "Name (Province)"
+console.log(names.map((name, index) => `${name} (${provinces[index]})`));
+
+// Log the new array of province names in all uppercase
+console.log(provinces.map(province => province.toUpperCase()));
+
+// Log the array of name lengths
+console.log(names.map(name => name.length));
+
+// Log the alphabetically sorted provinces
+console.log([...provinces].sort());
+
+// Log the count of remaining provinces after filtering out those containing "Cape"
+console.log(provinces.filter(province => !province.includes('Cape')).length);
+
+// Log the boolean array for names containing 'S'
+console.log(names.map(name => name.includes('S')));
+
+// Log the object mapping names to their respective provinces
+console.log(names.reduce((obj, name, index) => {
+  obj[name] = provinces[index];
+  return obj;
+}, {}));
