@@ -49,9 +49,9 @@ const containsS = names.map(name => name.includes('S'));
 console.log(containsS);
 
 // Transform the names array into an object mapping names to their respective provinces
-const nameToProvinceMap = names.reduce((obj, name, index) => {
-  obj[name] = provinces[index];
-  return obj;
+const nameToProvinceMap = names.reduce((object, name, index) => {
+  object[name] = provinces[index];
+  return object;
 }, {});
 console.log(nameToProvinceMap);
 
